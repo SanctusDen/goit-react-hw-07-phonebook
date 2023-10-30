@@ -24,17 +24,6 @@ export const ContactForm = () => {
     }));
   };
 
-  // const handleAddContact = e => {
-  //   e.preventDefault();
-
-  //   const name = e.currentTarget.elements.name.value;
-  //   const number = e.currentTarget.elements.number.value;
-  //   const newContact = { name, number };
-  //   dispatch(addContacts(newContact));
-
-  //   setContact({ name: '', number: '' });
-  // };
-
   const handleSubmit = e => {
     e.preventDefault();
 
@@ -51,6 +40,7 @@ export const ContactForm = () => {
       return;
     }
     dispatch(addContacts({ ...contact, id: nanoid() }));
+
     setContact({ name: '', number: '' });
   };
 
