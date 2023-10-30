@@ -10,7 +10,7 @@ export const Filter = () => {
   return (
     <>
       <FilterLabel>Find contacts by name</FilterLabel>
-      <FilterField id="filter" onChange={handleFilterChange} />
+      <FilterField onChange={handleFilterChange} />
     </>
   );
 };

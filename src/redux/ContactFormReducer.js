@@ -22,6 +22,7 @@ export const addContacts = createAsyncThunk(
   async (newContact, thunkAPI) => {
     try {
       const contactsAdd = await fetchAddContacts(newContact);
+      console.log('contactsAdd', contactsAdd);
       return contactsAdd;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -80,7 +81,7 @@ const contactsFormSlice = createSlice({
       })
       .addCase(addContacts.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.contacts.items = [...state.contacts.items, action.payload];
+        state.contacts.items = [action.payload, ...state.contacts.items];
       })
       .addCase(addContacts.rejected, (state, action) => {
         state.isLoading = false;
@@ -94,7 +95,7 @@ const contactsFormSlice = createSlice({
       .addCase(deleteContacts.fulfilled, (state, action) => {
         state.isLoading = false;
         state.contacts.items = state.contacts.items.filter(
-          c => c.id === action.payload.id
+          contact => contact.id === action.payload.id
         );
       })
       .addCase(deleteContacts.rejected, (state, action) => {

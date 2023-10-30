@@ -18,10 +18,12 @@ const contactFormConfig = {
   whitelist: ['items'],
 };
 
+export const rootReducers = {
+  contacts: persistReducer(contactFormConfig, ContactFormReducer),
+};
+
 export const store = configureStore({
-  reducer: {
-    contacts: persistReducer(contactFormConfig, ContactFormReducer),
-  },
+  reducer: rootReducers,
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
