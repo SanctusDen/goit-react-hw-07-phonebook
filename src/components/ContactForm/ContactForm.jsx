@@ -27,12 +27,6 @@ export const ContactForm = () => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    const name = e.currentTarget.elements.name.value;
-    const number = e.currentTarget.elements.number.value;
-    const newContact = { name, number };
-
-    // dispatch(addContacts(newContact));
-
     const isExist = contacts.some(
       ({ name }) => name.toLowerCase() === contact.name.toLowerCase()
     );
@@ -40,7 +34,7 @@ export const ContactForm = () => {
       alert(`${contact.name} is already in contacts.`);
       return;
     }
-    dispatch(addContacts({ ...newContact, id: nanoid() }));
+    dispatch(addContacts({ ...contact, id: nanoid() }));
 
     setContact({ name: '', number: '' });
   };
