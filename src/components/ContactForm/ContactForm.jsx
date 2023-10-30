@@ -40,7 +40,7 @@ export const ContactForm = () => {
       alert(`${contact.name} is already in contacts.`);
       return;
     }
-    // dispatch(addContacts({ ...newContact, id: nanoid() }));
+    dispatch(addContacts({ ...newContact, id: nanoid() }));
 
     setContact({ name: '', number: '' });
   };
