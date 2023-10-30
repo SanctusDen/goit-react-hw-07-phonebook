@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Form } from 'components/formContainer/formDiv.styled';
 import { Label, Field, SubmitBtn } from './ContactForm-module';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact, requestContacts } from 'redux/ContactFormReducer';
+import { addContacts, requestContacts } from 'redux/ContactFormReducer';
 import { nanoid } from '@reduxjs/toolkit';
 import { selectContacts } from 'redux/selectors';
 
@@ -24,8 +24,24 @@ export const ContactForm = () => {
     }));
   };
 
+  // const handleAddContact = e => {
+  //   e.preventDefault();
+
+  //   const name = e.currentTarget.elements.name.value;
+  //   const number = e.currentTarget.elements.number.value;
+  //   const newContact = { name, number };
+  //   dispatch(addContacts(newContact));
+
+  //   setContact({ name: '', number: '' });
+  // };
+
   const handleSubmit = e => {
     e.preventDefault();
+
+    const name = e.currentTarget.elements.name.value;
+    const number = e.currentTarget.elements.number.value;
+    const newContact = { name, number };
+    dispatch(addContacts(newContact));
 
     const isExist = contacts.some(
       ({ name }) => name.toLowerCase() === contact.name.toLowerCase()
@@ -34,8 +50,7 @@ export const ContactForm = () => {
       alert(`${contact.name} is already in contacts.`);
       return;
     }
-
-    dispatch(addContact({ ...contact, id: nanoid() }));
+    dispatch(addContacts({ ...contact, id: nanoid() }));
     setContact({ name: '', number: '' });
   };
 
