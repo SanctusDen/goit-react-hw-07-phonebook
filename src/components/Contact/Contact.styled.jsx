@@ -11,14 +11,16 @@ export const DeleteBtn = styled.button`
   width: 100px;
   height: 30px;
   border-radius: 8px;
-  border: none;
+
+  border: 1px solid black;
   font-weight: 600;
-  background-color: #000;
-  color: white;
+  cursor: pointer;
+  background-color: inherit;
+  color: black;
+  margin-right: 6px;
   &:hover,
   &:focus {
     color: white;
-    background-color: rgb(12 44 88);
   }
 `;
 export const Name = styled.p`

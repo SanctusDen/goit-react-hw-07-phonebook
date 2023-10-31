@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 
-
 export const ContactsForm = styled.form`
   width: 100%;
   display: flex;
@@ -18,10 +17,19 @@ export const Field = styled.input`
 
 export const SubmitBtn = styled.button`
   width: 100px;
+  margin-left: auto;
+  margin-right: auto;
   height: 30px;
   border-radius: 8px;
-  border: none;
+  border: 2px solid black;
   font-weight: 600;
-  color: white;
-  background-color: rgb(12 44 149);
+  cursor: pointer;
+  color: black;
+  background-color: inherit;
+
+  &:hover,
+  &:focus {
+    color: white;
+    transition: all 0.3ms cubic-bez;
+  }
 `;

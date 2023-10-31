@@ -7,6 +7,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+    background: url('https://fon.litrelax.ru/uploads/posts/2023-01/1673408433_foni-club-p-krutie-oboi-s-lesom-1.jpg')no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 code {
